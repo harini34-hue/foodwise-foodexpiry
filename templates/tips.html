@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block title %}
+FoodWise | Food Saving Tips
+{% endblock %}
+
+
+{% block content %}
+
+<div class="page-header">
+
+    <div>
+
+        <span class="section-label">
+            SUSTAINABLE LIVING
+        </span>
+
+        <h1>
+            💡 Food Saving Tips
+        </h1>
+
+        <p>
+            Simple practices that can help reduce
+            unnecessary food waste.
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="tips-grid">
+
+{% for tip in tips %}
+
+    <div class="tip-card">
+
+        <div class="tip-number">
+
+            {{ loop.index }}
+
+        </div>
+
+
+        <div>
+
+            <h2>
+                {{ tip.title }}
+            </h2>
+
+            <p>
+                {{ tip.description }}
+            </p>
+
+        </div>
+
+    </div>
+
+{% endfor %}
+
+</div>
+
+
+<section class="tips-banner">
+
+    <div class="tips-banner-icon">
+        🌱
+    </div>
+
+    <div>
+
+        <h2>
+            Small actions can make a big difference.
+        </h2>
+
+        <p>
+            Better planning, storage and monitoring can
+            help reduce food waste.
+        </p>
+
+    </div>
+
+</section>
+
+{% endblock %}

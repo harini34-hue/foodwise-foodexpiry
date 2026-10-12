@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        {% block title %}FoodWise{% endblock %}
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/chart.js"
+    ></script>
+
+</head>
+
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">
+        🍱 <span>FoodWise</span>
+    </div>
+
+    <nav>
+
+        <a href="/" class="nav-link">
+            🏠 Dashboard
+        </a>
+
+        <a href="/inventory" class="nav-link">
+            🍎 Inventory
+        </a>
+
+        <a href="/expiry" class="nav-link">
+            ⏰ Expiry
+        </a>
+
+        <a href="/predictor" class="nav-link">
+            🤖 Predictor
+        </a>
+
+        <a href="/waste" class="nav-link">
+            ♻️ Waste
+        </a>
+
+        <a href="/analytics" class="nav-link">
+            📊 Analytics
+        </a>
+
+        <a href="/regression" class="nav-link">
+            🧮 Regression
+        </a>
+
+        <a href="/tips" class="nav-link">
+            💡 Tips
+        </a>
+
+    </nav>
+
+</header>
+
+
+<main class="main-container">
+
+    {% block content %}
+    {% endblock %}
+
+</main>
+
+
+<footer>
+
+    <div class="footer-content">
+
+        <h3>🍱 FoodWise</h3>
+
+        <p>
+            Food Expiry & Waste Management System
+        </p>
+
+        <p class="footer-small">
+            Computational Mathematics Laboratory Project
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script
+    src="{{ url_for('static', filename='script.js') }}"
+></script>
+
+</body>
+
+</html>

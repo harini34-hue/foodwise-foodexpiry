@@ -1,0 +1,303 @@
+{% extends "base.html" %}
+
+{% block title %}
+FoodWise | Dashboard
+{% endblock %}
+
+
+{% block content %}
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <span class="hero-label">
+            SMART FOOD MANAGEMENT SYSTEM
+        </span>
+
+        <h1>
+            Reduce Food Waste.<br>
+            Manage Food Smarter.
+        </h1>
+
+        <p>
+            FoodWise helps monitor food expiry,
+            estimate shelf life using Linear Regression,
+            and understand food waste.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a
+                href="/inventory"
+                class="btn btn-primary"
+            >
+                Manage Inventory →
+            </a>
+
+            <a
+                href="/predictor"
+                class="btn btn-outline"
+            >
+                Try Predictor
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-illustration">
+
+        <div class="food-circle">
+            🥗
+        </div>
+
+        <div class="floating-food food-one">
+            🍎
+        </div>
+
+        <div class="floating-food food-two">
+            🥛
+        </div>
+
+        <div class="floating-food food-three">
+            🍞
+        </div>
+
+    </div>
+
+</section>
+
+
+<div class="section-heading">
+
+    <div>
+
+        <span class="section-label">
+            OVERVIEW
+        </span>
+
+        <h2>
+            Food Status
+        </h2>
+
+    </div>
+
+</div>
+
+
+<section class="dashboard-cards">
+
+
+    <div class="stat-card">
+
+        <div class="stat-icon green">
+            🍎
+        </div>
+
+        <div>
+
+            <p>
+                Food Items
+            </p>
+
+            <h3>
+                {{ total_items }}
+            </h3>
+
+            <span>
+                Total different items
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <div class="stat-icon blue">
+            📦
+        </div>
+
+        <div>
+
+            <p>
+                Total Quantity
+            </p>
+
+            <h3>
+                {{ total_quantity }}
+            </h3>
+
+            <span>
+                Food units
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="stat-card warning-card">
+
+        <div class="stat-icon orange">
+            ⏰
+        </div>
+
+        <div>
+
+            <p>
+                Expiring Soon
+            </p>
+
+            <h3>
+                {{ expiring }}
+            </h3>
+
+            <span>
+                Within 3 days
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="stat-card danger-card">
+
+        <div class="stat-icon red">
+            ⚠️
+        </div>
+
+        <div>
+
+            <p>
+                Expired
+            </p>
+
+            <h3>
+                {{ expired }}
+            </h3>
+
+            <span>
+                Needs attention
+            </span>
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+<section class="dashboard-grid">
+
+
+    <div class="feature-card">
+
+        <div class="feature-icon">
+            🤖
+        </div>
+
+        <div>
+
+            <h3>
+                Linear Regression Predictor
+            </h3>
+
+            <p>
+                Enter storage temperature and estimate
+                the expected shelf life of food.
+            </p>
+
+            <a href="/predictor">
+                Open Predictor →
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="feature-card">
+
+        <div class="feature-icon">
+            ♻️
+        </div>
+
+        <div>
+
+            <h3>
+                Waste Management
+            </h3>
+
+            <p>
+                Understand estimated food waste and
+                learn methods to reduce it.
+            </p>
+
+            <a href="/waste">
+                Open Waste Manager →
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="feature-card">
+
+        <div class="feature-icon">
+            📊
+        </div>
+
+        <div>
+
+            <h3>
+                Food Analytics
+            </h3>
+
+            <p>
+                Visualize your food inventory using
+                easy-to-understand charts.
+            </p>
+
+            <a href="/analytics">
+                View Analytics →
+            </a>
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+<section class="bottom-banner">
+
+    <div>
+
+        <span>
+            COMPUTATIONAL MATHEMATICS
+        </span>
+
+        <h2>
+            See how Linear Regression powers FoodWise.
+        </h2>
+
+    </div>
+
+    <a
+        href="/regression"
+        class="btn btn-light"
+    >
+        View Mathematics →
+    </a>
+
+</section>
+
+{% endblock %}

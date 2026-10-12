@@ -1,0 +1,210 @@
+{% extends "base.html" %}
+
+{% block title %}
+FoodWise | Expiry Predictor
+{% endblock %}
+
+
+{% block content %}
+
+<div class="page-header">
+
+    <div>
+
+        <span class="section-label">
+            COMPUTATIONAL MATHEMATICS
+        </span>
+
+        <h1>
+            🤖 Food Shelf-Life Predictor
+        </h1>
+
+        <p>
+            Use Linear Regression to estimate expected
+            shelf life from storage temperature.
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="predictor-layout">
+
+
+    <div class="predictor-form-card">
+
+        <div class="predictor-icon">
+            🌡️
+        </div>
+
+        <h2>
+            Enter Storage Temperature
+        </h2>
+
+        <p>
+            Enter the temperature in degrees Celsius.
+        </p>
+
+
+        <form method="POST">
+
+            <label>
+                Temperature (°C)
+            </label>
+
+            <div class="temperature-input">
+
+                <input
+                    type="number"
+                    name="temperature"
+                    step="0.1"
+                    placeholder="20"
+                    required
+                >
+
+                <span>
+                    °C
+                </span>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="btn btn-primary full-btn"
+            >
+                🔬 Predict Shelf Life
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <div class="prediction-result-card">
+
+        {% if prediction is not none %}
+
+            <span class="result-label">
+                PREDICTION RESULT
+            </span>
+
+            <div class="big-result">
+
+                {{ prediction }}
+
+                <small>
+                    days
+                </small>
+
+            </div>
+
+            <p>
+                Estimated shelf life at
+                <strong>
+                    {{ temperature }}°C
+                </strong>
+            </p>
+
+            <div class="result-message">
+
+                {{ prediction_message }}
+
+            </div>
+
+        {% else %}
+
+            <div class="empty-prediction">
+
+                <div>
+                    🔬
+                </div>
+
+                <h2>
+                    Prediction Ready
+                </h2>
+
+                <p>
+                    Enter a temperature to see the
+                    Linear Regression prediction.
+                </p>
+
+            </div>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+
+<section class="math-explanation">
+
+    <div>
+
+        <span class="section-label">
+            HOW IT WORKS
+        </span>
+
+        <h2>
+            Linear Regression Model
+        </h2>
+
+        <p>
+            FoodWise uses temperature as the independent
+            variable and expected shelf life as the dependent
+            variable.
+        </p>
+
+    </div>
+
+
+    <div class="formula-box">
+
+        <span>
+            Regression Equation
+        </span>
+
+        <strong>
+            ŷ = b₀ + b₁x
+        </strong>
+
+        <p>
+            x = temperature
+            <br>
+            ŷ = predicted shelf life
+        </p>
+
+    </div>
+
+</section>
+
+
+<div class="model-data">
+
+    <h2>
+        Training Data Used
+    </h2>
+
+    <div class="data-pills">
+
+        <span>5°C → 14 days</span>
+
+        <span>10°C → 12 days</span>
+
+        <span>15°C → 10 days</span>
+
+        <span>20°C → 8 days</span>
+
+        <span>25°C → 6 days</span>
+
+        <span>30°C → 4 days</span>
+
+        <span>35°C → 2 days</span>
+
+    </div>
+
+</div>
+
+{% endblock %}

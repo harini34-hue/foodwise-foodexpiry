@@ -1,0 +1,311 @@
+{% extends "base.html" %}
+
+{% block title %}
+FoodWise | Linear Regression
+{% endblock %}
+
+
+{% block content %}
+
+<div class="page-header">
+
+    <div>
+
+        <span class="section-label">
+            COMPUTATIONAL MATHEMATICS LAB
+        </span>
+
+        <h1>
+            🧮 Linear Regression Lab
+        </h1>
+
+        <p>
+            Mathematical model used to predict expected
+            food shelf life.
+        </p>
+
+    </div>
+
+</div>
+
+
+<section class="regression-hero">
+
+    <div>
+
+        <span>
+            BEST FIT EQUATION
+        </span>
+
+        <div class="large-formula">
+            ŷ = {{ slope }}x + {{ intercept }}
+        </div>
+
+        <p>
+            This equation is generated from the training data.
+        </p>
+
+    </div>
+
+    <div class="formula-symbol">
+        ∑
+    </div>
+
+</section>
+
+
+<section class="dashboard-cards">
+
+
+    <div class="stat-card">
+
+        <div class="stat-icon blue">
+            📐
+        </div>
+
+        <div>
+
+            <p>
+                Slope (b₁)
+            </p>
+
+            <h3>
+                {{ slope }}
+            </h3>
+
+            <span>
+                Change in shelf life per °C
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <div class="stat-icon green">
+            🔢
+        </div>
+
+        <div>
+
+            <p>
+                Intercept (b₀)
+            </p>
+
+            <h3>
+                {{ intercept }}
+            </h3>
+
+            <span>
+                Model intercept
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <div class="stat-icon purple">
+            📈
+        </div>
+
+        <div>
+
+            <p>
+                R² Score
+            </p>
+
+            <h3>
+                {{ r2 }}
+            </h3>
+
+            <span>
+                Model fit
+            </span>
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+<section class="regression-content">
+
+
+    <div class="explanation-card">
+
+        <h2>
+            What is Linear Regression?
+        </h2>
+
+        <p>
+            Linear Regression is a mathematical and statistical
+            technique used to model the relationship between
+            an independent variable and a dependent variable.
+        </p>
+
+        <p>
+            In our project, storage temperature is used as
+            the independent variable and expected shelf life
+            is used as the dependent variable.
+        </p>
+
+    </div>
+
+
+    <div class="explanation-card">
+
+        <h2>
+            Variables Used
+        </h2>
+
+        <div class="variable-item">
+
+            <strong>
+                X
+            </strong>
+
+            <span>
+                Storage Temperature (°C)
+            </span>
+
+        </div>
+
+
+        <div class="variable-item">
+
+            <strong>
+                Y
+            </strong>
+
+            <span>
+                Expected Shelf Life (Days)
+            </span>
+
+        </div>
+
+
+        <div class="variable-item">
+
+            <strong>
+                ŷ
+            </strong>
+
+            <span>
+                Predicted Shelf Life
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="training-data">
+
+    <h2>
+        Training Dataset
+    </h2>
+
+    <p>
+        The demonstration model is trained using:
+    </p>
+
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>
+                    Temperature (X)
+                </th>
+
+                <th>
+                    Shelf Life (Y)
+                </th>
+
+            </tr>
+
+        </thead>
+
+
+        <tbody>
+
+            <tr>
+                <td>5°C</td>
+                <td>14 days</td>
+            </tr>
+
+            <tr>
+                <td>10°C</td>
+                <td>12 days</td>
+            </tr>
+
+            <tr>
+                <td>15°C</td>
+                <td>10 days</td>
+            </tr>
+
+            <tr>
+                <td>20°C</td>
+                <td>8 days</td>
+            </tr>
+
+            <tr>
+                <td>25°C</td>
+                <td>6 days</td>
+            </tr>
+
+            <tr>
+                <td>30°C</td>
+                <td>4 days</td>
+            </tr>
+
+            <tr>
+                <td>35°C</td>
+                <td>2 days</td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</section>
+
+
+<div class="viva-box">
+
+    <div class="viva-icon">
+        🎓
+    </div>
+
+    <div>
+
+        <h2>
+            Viva Explanation
+        </h2>
+
+        <p>
+            "We use Linear Regression because we want to
+            demonstrate the relationship between storage
+            temperature and expected shelf life. Temperature
+            is our independent variable and shelf life is our
+            dependent variable. The model calculates a
+            best-fit line and uses it to predict shelf life
+            for a given temperature."
+        </p>
+
+    </div>
+
+</div>
+
+{% endblock %}

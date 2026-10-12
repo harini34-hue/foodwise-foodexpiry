@@ -1,0 +1,203 @@
+{% extends "base.html" %}
+
+{% block title %}
+FoodWise | Waste Management
+{% endblock %}
+
+
+{% block content %}
+
+<div class="page-header">
+
+    <div>
+
+        <span class="section-label">
+            SUSTAINABILITY
+        </span>
+
+        <h1>
+            ♻️ Waste Management
+        </h1>
+
+        <p>
+            Understand food waste and discover
+            practical ways to reduce it.
+        </p>
+
+    </div>
+
+</div>
+
+
+<section class="dashboard-cards">
+
+
+    <div class="stat-card">
+
+        <div class="stat-icon green">
+            📦
+        </div>
+
+        <div>
+
+            <p>
+                Total Food
+            </p>
+
+            <h3>
+                {{ total_quantity }}
+            </h3>
+
+            <span>
+                Units in inventory
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="stat-card danger-card">
+
+        <div class="stat-icon red">
+            🗑️
+        </div>
+
+        <div>
+
+            <p>
+                Estimated Waste
+            </p>
+
+            <h3>
+                {{ estimated_waste }}
+            </h3>
+
+            <span>
+                Approx. 15%
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <div class="stat-icon blue">
+            🌱
+        </div>
+
+        <div>
+
+            <p>
+                Potentially Saved
+            </p>
+
+            <h3>
+                {{ potentially_saved }}
+            </h3>
+
+            <span>
+                Food units
+            </span>
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+<section class="waste-grid">
+
+
+    <div class="waste-card">
+
+        <div class="waste-card-icon">
+            🛒
+        </div>
+
+        <h2>
+            Buy Smart
+        </h2>
+
+        <p>
+            Purchase food according to actual
+            requirements instead of buying excessive quantities.
+        </p>
+
+    </div>
+
+
+    <div class="waste-card">
+
+        <div class="waste-card-icon">
+            ⏰
+        </div>
+
+        <h2>
+            Monitor Expiry
+        </h2>
+
+        <p>
+            Use food with the nearest expiry date first.
+            This follows the FIFO principle.
+        </p>
+
+    </div>
+
+
+    <div class="waste-card">
+
+        <div class="waste-card-icon">
+            ❄️
+        </div>
+
+        <h2>
+            Store Properly
+        </h2>
+
+        <p>
+            Proper storage can help maintain food quality
+            and reduce unnecessary spoilage.
+        </p>
+
+    </div>
+
+
+    <div class="waste-card">
+
+        <div class="waste-card-icon">
+            ❤️
+        </div>
+
+        <h2>
+            Donate Surplus
+        </h2>
+
+        <p>
+            Safe surplus food can be donated instead
+            of being unnecessarily discarded.
+        </p>
+
+    </div>
+
+
+</section>
+
+
+<div class="waste-note">
+
+    <strong>
+        Note:
+    </strong>
+
+    The waste percentage used here is a
+    demonstration assumption for the laboratory project.
+    Later, this can be replaced with real database data.
+
+</div>
+
+{% endblock %}

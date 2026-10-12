@@ -1,0 +1,315 @@
+{% extends "base.html" %}
+
+{% block title %}
+FoodWise | Inventory
+{% endblock %}
+
+
+{% block content %}
+
+<div class="page-header">
+
+    <div>
+
+        <span class="section-label">
+            FOOD MANAGEMENT
+        </span>
+
+        <h1>
+            🍎 Food Inventory
+        </h1>
+
+        <p>
+            Add and monitor the food available in your inventory.
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="inventory-layout">
+
+
+    <div class="form-card">
+
+        <div class="card-heading">
+
+            <h2>
+                Add Food Item
+            </h2>
+
+            <span>
+                +
+            </span>
+
+        </div>
+
+
+        <form
+            method="POST"
+            class="food-form"
+        >
+
+            <label>
+                Food Name
+            </label>
+
+            <input
+                type="text"
+                name="name"
+                placeholder="Example: Milk"
+                required
+            >
+
+
+            <label>
+                Category
+            </label>
+
+            <select
+                name="category"
+                required
+            >
+
+                <option value="">
+                    Select category
+                </option>
+
+                <option value="Dairy">
+                    Dairy
+                </option>
+
+                <option value="Fruits">
+                    Fruits
+                </option>
+
+                <option value="Vegetables">
+                    Vegetables
+                </option>
+
+                <option value="Bakery">
+                    Bakery
+                </option>
+
+                <option value="Grains">
+                    Grains
+                </option>
+
+                <option value="Meat">
+                    Meat
+                </option>
+
+                <option value="Beverages">
+                    Beverages
+                </option>
+
+            </select>
+
+
+            <label>
+                Purchase Date
+            </label>
+
+            <input
+                type="date"
+                name="purchase_date"
+                required
+            >
+
+
+            <label>
+                Expiry Date
+            </label>
+
+            <input
+                type="date"
+                name="expiry_date"
+                required
+            >
+
+
+            <label>
+                Quantity
+            </label>
+
+            <input
+                type="number"
+                name="quantity"
+                min="1"
+                placeholder="Example: 5"
+                required
+            >
+
+
+            <button
+                type="submit"
+                class="btn btn-primary full-btn"
+            >
+                + Add Food Item
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <div class="inventory-info">
+
+        <div class="mini-info green-mini">
+
+            <span>
+                🍏
+            </span>
+
+            <div>
+
+                <h3>
+                    Smart Tracking
+                </h3>
+
+                <p>
+                    Track purchase and expiry dates
+                    in one place.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="mini-info orange-mini">
+
+            <span>
+                ⏰
+            </span>
+
+            <div>
+
+                <h3>
+                    Expiry Monitoring
+                </h3>
+
+                <p>
+                    Quickly identify food items
+                    approaching expiry.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="mini-info blue-mini">
+
+            <span>
+                📊
+            </span>
+
+            <div>
+
+                <h3>
+                    Data Analysis
+                </h3>
+
+                <p>
+                    Inventory data can later be
+                    connected to a database.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="section-heading table-heading">
+
+    <div>
+
+        <span class="section-label">
+            CURRENT DATA
+        </span>
+
+        <h2>
+            Inventory List
+        </h2>
+
+    </div>
+
+</div>
+
+
+<div class="table-wrapper">
+
+<table>
+
+    <thead>
+
+        <tr>
+
+            <th>ID</th>
+
+            <th>Food</th>
+
+            <th>Category</th>
+
+            <th>Purchase Date</th>
+
+            <th>Expiry Date</th>
+
+            <th>Quantity</th>
+
+        </tr>
+
+    </thead>
+
+
+    <tbody>
+
+    {% for food in foods %}
+
+        <tr>
+
+            <td>
+                #{{ food.id }}
+            </td>
+
+            <td class="food-name">
+                {{ food.name }}
+            </td>
+
+            <td>
+                <span class="category-badge">
+                    {{ food.category }}
+                </span>
+            </td>
+
+            <td>
+                {{ food.purchase_date }}
+            </td>
+
+            <td>
+                {{ food.expiry_date }}
+            </td>
+
+            <td>
+                <strong>
+                    {{ food.quantity }}
+                </strong>
+            </td>
+
+        </tr>
+
+    {% endfor %}
+
+    </tbody>
+
+</table>
+
+</div>
+
+{% endblock %}

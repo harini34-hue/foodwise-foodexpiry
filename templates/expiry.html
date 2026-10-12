@@ -1,0 +1,176 @@
+{% extends "base.html" %}
+
+{% block title %}
+FoodWise | Expiry Tracker
+{% endblock %}
+
+
+{% block content %}
+
+<div class="page-header">
+
+    <div>
+
+        <span class="section-label">
+            SMART MONITORING
+        </span>
+
+        <h1>
+            ⏰ Expiry Tracker
+        </h1>
+
+        <p>
+            Monitor food freshness and identify items
+            that require immediate attention.
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="status-guide">
+
+    <div>
+        <span class="status-dot fresh-dot"></span>
+        Fresh
+    </div>
+
+    <div>
+        <span class="status-dot warning-dot"></span>
+        Expiring Soon
+    </div>
+
+    <div>
+        <span class="status-dot expired-dot"></span>
+        Expired
+    </div>
+
+</div>
+
+
+<div class="table-wrapper">
+
+<table>
+
+    <thead>
+
+        <tr>
+
+            <th>Food</th>
+
+            <th>Category</th>
+
+            <th>Expiry Date</th>
+
+            <th>Remaining</th>
+
+            <th>Status</th>
+
+        </tr>
+
+    </thead>
+
+
+    <tbody>
+
+    {% for food in foods %}
+
+        <tr>
+
+            <td class="food-name">
+                {{ food.name }}
+            </td>
+
+            <td>
+                {{ food.category }}
+            </td>
+
+            <td>
+                {{ food.expiry_date }}
+            </td>
+
+            <td>
+
+                {% if food.days_left < 0 %}
+
+                    <strong class="text-danger">
+                        {{ food.days_left|abs }} days ago
+                    </strong>
+
+                {% elif food.days_left == 0 %}
+
+                    <strong class="text-danger">
+                        Today
+                    </strong>
+
+                {% else %}
+
+                    <strong>
+                        {{ food.days_left }} days
+                    </strong>
+
+                {% endif %}
+
+            </td>
+
+
+            <td>
+
+                {% if food.status == "Expired" %}
+
+                    <span class="status-badge expired">
+                        ❌ Expired
+                    </span>
+
+                {% elif food.status == "Expiring Soon" %}
+
+                    <span class="status-badge expiring">
+                        ⚠️ Expiring Soon
+                    </span>
+
+                {% else %}
+
+                    <span class="status-badge fresh">
+                        ✓ Fresh
+                    </span>
+
+                {% endif %}
+
+            </td>
+
+        </tr>
+
+    {% endfor %}
+
+    </tbody>
+
+</table>
+
+</div>
+
+
+<div class="notice-card">
+
+    <div class="notice-icon">
+        💡
+    </div>
+
+    <div>
+
+        <h3>
+            Food Safety Reminder
+        </h3>
+
+        <p>
+            The expiry tracker is a project demonstration.
+            Always follow the food manufacturer's storage
+            instructions and safety guidance when deciding
+            whether food is safe to consume.
+        </p>
+
+    </div>
+
+</div>
+
+{% endblock %}
